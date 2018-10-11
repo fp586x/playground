@@ -3,7 +3,10 @@ const express = require('express');
 // user resources
 const userRouter = express.Router()
 
-userRouter.get('/', function (req, res) {
+const userModel = require('../models/user.model')
+
+userRouter.get('/', async function (req, res) {
+    console.log(await userModel.find())
     return res.send('users')
 })
 
